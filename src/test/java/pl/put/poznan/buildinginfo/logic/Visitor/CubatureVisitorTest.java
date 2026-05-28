@@ -10,19 +10,19 @@ import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class AreaVisitorTest {
+class CubatureVisitorTest {
 
     private Building building;
     private Level level1;
     private Room room1;
-    private AreaVisitor areaVisitor;
+    private CubatureVisitor cubatureVisitor;
 
     @BeforeEach
     void setUp() {
-        room1 = new Room(); room1.setArea(10);
-        Room r2 = new Room(); r2.setArea(20);
-        Room r3 = new Room(); r3.setArea(30);
-        Room r4 = new Room(); r4.setArea(40);
+        room1 = new Room(); room1.setCubature(10);
+        Room r2 = new Room(); r2.setCubature(20);
+        Room r3 = new Room(); r3.setCubature(30);
+        Room r4 = new Room(); r4.setCubature(40);
 
         ArrayList<Room> roomsLevel1 = new ArrayList<>();
         roomsLevel1.add(room1);
@@ -43,28 +43,28 @@ class AreaVisitorTest {
         building = new Building();
         building.setChildrenLevels(levels);
 
-        areaVisitor = new AreaVisitor();
+        cubatureVisitor = new CubatureVisitor();
     }
 
 
     @Test
-    void testTotalAreaBuildingCalculation() {
-        building.accept(areaVisitor);
+    void testTotalCubatureBuildingCalculation() {
+        building.accept(cubatureVisitor);
 
-        assertEquals(100, areaVisitor.getResult(), "Area calculation failed for the building.");
+        assertEquals(100, cubatureVisitor.getResult(), "Cubature calculation failed for the building.");
     }
 
     @Test
-    void testTotalAreaLevelCalculation() {
-        level1.accept(areaVisitor);
+    void testTotalCubatureLevelCalculation() {
+        level1.accept(cubatureVisitor);
 
-        assertEquals(30, areaVisitor.getResult(), "Area calculation failed for the level.");
+        assertEquals(30, cubatureVisitor.getResult(), "Cubature calculation failed for the level.");
     }
 
     @Test
-    void testTotalAreaRoomCalculation() {
-        room1.accept(areaVisitor);
+    void testTotalCubatureRoomCalculation() {
+        room1.accept(cubatureVisitor);
 
-        assertEquals(10, areaVisitor.getResult(), "Area calculation failed for the room.");
+        assertEquals(10, cubatureVisitor.getResult(), "Cubature calculation failed for the room.");
     }
 }
