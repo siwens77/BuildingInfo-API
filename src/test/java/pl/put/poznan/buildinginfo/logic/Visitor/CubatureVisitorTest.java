@@ -50,21 +50,21 @@ class CubatureVisitorTest {
     @Test
     void testTotalCubatureBuildingCalculation() {
         building.accept(cubatureVisitor);
-
+        //10+20+30+40 = 100
         assertEquals(100, cubatureVisitor.getResult(), "Cubature calculation failed for the building.");
     }
 
     @Test
     void testTotalCubatureLevelCalculation() {
         level1.accept(cubatureVisitor);
-
+        //10+20=30
         assertEquals(30, cubatureVisitor.getResult(), "Cubature calculation failed for the level.");
     }
 
     @Test
     void testTotalCubatureRoomCalculation() {
         room1.accept(cubatureVisitor);
-
+        //room cubature = 10
         assertEquals(10, cubatureVisitor.getResult(), "Cubature calculation failed for the room.");
     }
 }

@@ -50,21 +50,21 @@ class AreaVisitorTest {
     @Test
     void testTotalAreaBuildingCalculation() {
         building.accept(areaVisitor);
-
+        // 10+20+30+40=100
         assertEquals(100, areaVisitor.getResult(), "Area calculation failed for the building.");
     }
 
     @Test
     void testTotalAreaLevelCalculation() {
         level1.accept(areaVisitor);
-
+        //10+20=30
         assertEquals(30, areaVisitor.getResult(), "Area calculation failed for the level.");
     }
 
     @Test
     void testTotalAreaRoomCalculation() {
         room1.accept(areaVisitor);
-
+        //room area = 10
         assertEquals(10, areaVisitor.getResult(), "Area calculation failed for the room.");
     }
 }

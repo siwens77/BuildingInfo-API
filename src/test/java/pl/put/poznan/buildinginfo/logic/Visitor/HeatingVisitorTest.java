@@ -52,21 +52,21 @@ class HeatingVisitorTest {
     @Test
     void testTotalHeatingBuildingCalculation() {
         building.accept(heatingVisitor);
-
+        //(10+20+30+40)/(5+5+5+5) = 5
         assertEquals(5, heatingVisitor.getResult(), "Heating calculation failed for the building.");
     }
 
     @Test
     void testTotalHeatingLevelCalculation() {
         level1.accept(heatingVisitor);
-
+        //(10+20)/(5+5) = 3
         assertEquals(3, heatingVisitor.getResult(), "Heating calculation failed for the level.");
     }
 
     @Test
     void testTotalHeatingRoomCalculation() {
         room1.accept(heatingVisitor);
-
+        // 10/5 = 2
         assertEquals(2, heatingVisitor.getResult(), "Heating calculation failed for the room.");
     }
 }
